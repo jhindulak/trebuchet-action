@@ -2,10 +2,27 @@ name: 'Trebuchet'
 description: 'Provides the functionality of Trebuchet as a GitHub Action'
 author: 'Jason Hindulak'
 inputs:
-  message:
-    description: 'What to say'
+  action:
     required: true
-    default: 'Default text'
+    description: 'Trebuchet command to execute. Must be [push, pull, repository], aliases are not supported'
+  image:
+    required: true
+    description: 'Docker image'
+  assumeRoleArn:
+    required: false
+    description: 'ARN of role to assume'
+  awsProfile:
+    required: false
+    description: 'Name of AWS profile in a shared credentials file'
+  awsRegion:
+    required: false
+    description: 'AWS region to execute Trebuchet commands'
+  stripEcrImage:
+    required: false
+    description: 'Flag when using pull command to strip ECR-specific elements from full image name'
+  verbose:
+    required: false
+    description: 'Enables verbose logging'
 runs:
   using: 'docker'
   image: 'Dockerfile'

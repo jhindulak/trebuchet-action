@@ -18,4 +18,9 @@ jobs:
         uses: ./
         id: trebuchet
         with:
-          message: 'this is a test'
+          action: push
+          image: hello/world:3.4-beta
+          assume_role_arn: 'arn:aws:iam::112233445566:role/PushToECR'
+          profile: 'pe-staging'
+          region: 'us-east-1'
+          verbose: false
