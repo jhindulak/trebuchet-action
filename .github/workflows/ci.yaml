@@ -16,7 +16,7 @@ jobs:
 
       - name: Trebuchet Push
         uses: ./
-        id: trebuchet
+        id: trebuchet-push
         with:
           action: push
           image: hello/world:3.4-beta
@@ -27,7 +27,7 @@ jobs:
 
       - name: Trebuchet Pull
         uses: ./
-        id: trebuchet
+        id: trebuchet-pull
         with:
           action: pull
           image: hello/world:3.4-beta
