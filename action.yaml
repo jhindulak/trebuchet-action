@@ -1,0 +1,14 @@
+name: 'Trebuchet'
+description: 'Provides the functionality of Trebuchet as a GitHub Action'
+author: 'Jason Hindulak'
+inputs:
+  message:
+    description: 'What to say'
+    required: true
+    default: 'Default text'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+branding:
+  color: 'blue'
+  icon: 'arrow-up-right'

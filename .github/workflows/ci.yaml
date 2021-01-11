@@ -1,0 +1,21 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  test-trebuchet-action:
+    name: Test Trebuchet Action
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Trebuchet Test
+        uses: ./
+        id: trebuchet
+        with:
+          message: 'this is a test'
