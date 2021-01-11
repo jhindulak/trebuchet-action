@@ -20,7 +20,7 @@ jobs:
         with:
           action: push
           image: hello/world:3.4-beta
-          assume_role_arn: 'arn:aws:iam::112233445566:role/PushToECR'
-          profile: 'pe-staging'
-          region: 'us-east-1'
+          assumeRoleArn: 'arn:aws:iam::112233445566:role/PushToECR'
+          awsProfile: 'pe-staging'
+          awsRegion: 'us-east-1'
           verbose: false
