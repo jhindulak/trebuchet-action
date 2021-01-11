@@ -4,7 +4,7 @@ author: 'Jason Hindulak'
 inputs:
   action:
     required: true
-    description: 'Trebuchet command to execute. Must be [push, pull, repository], aliases are not supported'
+    description: 'Trebuchet command to execute. Must be [push, pull], aliases are not supported'
   image:
     required: true
     description: 'Docker image'
@@ -23,6 +23,10 @@ inputs:
   verbose:
     required: false
     description: 'Enables verbose logging'
+    default: 'false'
+outputs:
+  fullImageName:
+    description: 'Output of treb repository command, which contains the full ECR image name'
 runs:
   using: 'docker'
   image: 'Dockerfile'

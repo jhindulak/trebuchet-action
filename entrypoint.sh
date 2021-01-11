@@ -1,19 +1,22 @@
 #!/bin/sh -l
 
-# Solve / Parse variables
-# Construct command
-# Run command
-# Generate full repo name as an output
+TREB_VERBOSE=""
+if [[ $INPUT_VERBOSE = true ]]; then
+  TREB_VERBOSE="--verbose"
+fi
 
-echo "Here are all the environment variables set:"
-env
-
-# export INPUT_ACTION="pull"
-
-# Input validation
+# Execute Trebuchet
 case $INPUT_ACTION in
-    push | pull | repository) ;;
-    *) echo "ERROR - invalid input actionL $INPUT_ACTION. Action must be one of [push, pull, repository]." && exit 1 ;;
+  push) 
+    echo "Executing: treb push $INPUT_IMAGE $INPUT_AWSPROFILE $INPUT_ASSUMEROLEARN $INPUT_AWSREGION $TREB_VERBOSE"
+    echo "PUSH COMMAND HERE" ;;
+  pull) 
+    echo "Executing: treb pull $INPUT_IMAGE $INPUT_AWSPROFILE $INPUT_ASSUMEROLEARN $INPUT_AWSREGION $INPUT_STRIPECRIMAGE $TREB_VERBOSE"
+    echo "PULL COMMAND HERE" ;;
+  *) 
+    echo "ERROR - invalid input action: $INPUT_ACTION. Action must be one of [push, pull]." && exit 1 ;;
 esac
 
-echo "Successfully parsed action input: $INPUT_ACTION"
+# Set Repository output
+# repositoryOutput=$(treb repository $INPUT_IMAGE $INPUT_AWSPROFILE $INPUT_ASSUMEROLEARN $INPUT_AWSREGION $TREB_VERBOSE)
+# echo "::set-output name=fullImageName::$repositoryOutput"

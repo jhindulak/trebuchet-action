@@ -14,11 +14,22 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: Trebuchet Test
+      - name: Trebuchet Push
         uses: ./
         id: trebuchet
         with:
           action: push
+          image: hello/world:3.4-beta
+          assumeRoleArn: 'arn:aws:iam::112233445566:role/PushToECR'
+          awsProfile: 'pe-staging'
+          awsRegion: 'us-east-1'
+          verbose: false
+
+      - name: Trebuchet Pull
+        uses: ./
+        id: trebuchet
+        with:
+          action: pull
           image: hello/world:3.4-beta
           assumeRoleArn: 'arn:aws:iam::112233445566:role/PushToECR'
           awsProfile: 'pe-staging'
